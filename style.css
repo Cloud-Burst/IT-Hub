@@ -6,6 +6,7 @@
 
 *::-webkit-scrollbar {
     width: 10px;
+    height: 10px;
 }
 
 *::-webkit-scrollbar-track {
@@ -20,6 +21,7 @@
 
 body{
   background-color: #0f0f0f;
+  overflow-x: hidden;
 }
 
 .blur {
@@ -182,6 +184,7 @@ section {
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow-y: hidden;
 }
 
 .ctg-container h2, h3 {
@@ -196,7 +199,7 @@ section {
   align-items: center;
   padding-top: 10px;
   padding-bottom: 10px;
-  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .ctg-subtitle {
