@@ -15,3 +15,15 @@ const nextImage = () => {
 setInterval(nextImage, 5000);
 
 import { addHoverEffect } from './utils.js';
+
+
+const mt = document.getElementById("mouse-tracker");
+
+document.body.onpointermove = event => {
+  const { clientX, clientY } = event;
+
+  mt.animate({
+    left: `${clientX}px`,
+    top: `${clientY}px`
+  }, { duration: 3000, fill: "forwards" });
+}
