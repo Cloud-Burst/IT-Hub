@@ -200,6 +200,7 @@ section {
   padding-top: 10px;
   padding-bottom: 10px;
   overflow-y: hidden;
+  scroll-snap-type: x mandatory;
 }
 
 .ctg-subtitle {

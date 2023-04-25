@@ -25,3 +25,4 @@ function addHoverEffect(parentSelector, cardSelector) {
 addHoverEffect('.card-container', '.ctg-card');
 
 export { addHoverEffect };
+
