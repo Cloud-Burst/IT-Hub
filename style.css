@@ -265,13 +265,45 @@ section {
   text-align: center;
 }
 
-
 footer {
   width: 100%;
-  text-align: center;
-  background-color: #afafaf;
+  background-color: rgba(0, 0, 0, .7);
   color: white;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 
+.foot-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0;
+}
+
+#foot-logo {
+  width: 100px;
+  height: 100px;
+}
+
+.foot1 {
+  width: 30%;
+  display: flex;
+}
+
+.foot2 {
+  width: 30%;
+}
+
+.foot2 ul {
+  list-style: none;
+}
+
+.foot2 li {
+  padding: 5px;
+}
+
+.foot3 {
+  width: 30%;
+}
+
+footer p {
+  text-align: center;
+  padding: 10px 0;
+}
