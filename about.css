@@ -12,27 +12,45 @@ header {
   width: 100%;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
-.abt-head {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border: 3px groove black;
-  padding: 10px;
-  border-radius: 12px;
+.head-icons {
+  flex-basis: 35%;
 }
 
-.abt-head #logo {
-  width: 200px;
-  padding: 10px;
-  border: 2px solid black;
-  border-radius: 50%;
-  background-color: lightskyblue;
+.head-icons img{
+  width: 100%;
+  height: 100%;
 }
+
+.abt-head-text {
+  flex-basis: 60%;
+  position: relative;
+  color: white;
+  background-color: rgba(0, 0, 0, .4);
+  border-radius: 25px;
+  border: groove 2px white;
+  padding: 10px;
+}
+
+h2 {
+  font-size: 40px;
+  margin: 10px 10px;
+}
+
+p {
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.abt-sec {
+  height: 35vh;
+  color: white;
+}
+
+
 
 #dev-btn {
   padding: 5px;

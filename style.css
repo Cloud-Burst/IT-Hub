@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Chakra+Petch&display=swap');
+
+/*
+font-family: 'Abril Fatface', cursive;
+font-family: 'Chakra Petch', sans-serif;
+*/
+
 * {
   margin: 0;
   padding: 0;
@@ -17,6 +24,14 @@
     background-color: #47cf73;
     border-radius: 9px;
     border: 3px double #010101;
+}
+
+h1, h2 {
+  font-family: 'Abril Fatface', cursive;
+}
+
+h3, p {
+  font-family: 'Chakra Petch', sans-serif;
 }
 
 body {
@@ -106,8 +121,8 @@ a {
   position: absolute;
   padding: 20px;
   color: orchid;
-  background-color: rgba(0, 0, 0, .6);
   font-weight: bold;
+  background-color: rgba(0, 0, 0, .6);
   border-radius: 20px;
   border: groove 2px white;
   display: flex;
