@@ -102,6 +102,8 @@ ctgCards.forEach((card) => {
 
         const modal = document.querySelector('.modal');
         modal.style.display = 'block';
+        
+        shuffleData();
       } else {
         alert(`No Content yet.`);
       }
@@ -112,6 +114,7 @@ ctgCards.forEach((card) => {
 
 // Function to display the next card in the modal
 function nextCard() {
+  shuffleData();
   // Get all .ctg-card elements
   const ctgCards = document.querySelectorAll('.ctg-card');
   
@@ -138,11 +141,13 @@ function nextCard() {
   
     const summaryEl = document.getElementById("summary");
     summaryEl.innerText = text;
+    
   });
 }
 
 // Function to display the previous card in the modal
 function prevCard() {
+  shuffleData();
   // Get all .ctg-card elements
   const ctgCards = document.querySelectorAll('.ctg-card');
   
@@ -169,6 +174,7 @@ function prevCard() {
   
     const summaryEl = document.getElementById("summary");
     summaryEl.innerText = text;
+    
   });
 }
 
@@ -183,36 +189,43 @@ const modal = document.querySelector('.modal');
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    shuffleData();
   }
 }
 
-onValue(sugDB, (snapshot) => {
-  const data = snapshot.val();
-  const dataKeys = Object.keys(data);
+const sugImgList = document.querySelectorAll("#sug-img");
+const sugAccList = document.querySelectorAll("#sug-acc");
 
-  if (dataKeys.length > 0) {
-    let uniqueDataKeys = [...dataKeys];
+function shuffleData() {
+  onValue(sugDB, (snapshot) => {
+    const data = snapshot.val();
+    const dataKeys = Object.keys(data);
 
-    const sugImgList = document.querySelectorAll("#sug-img");
-    const sugAccList = document.querySelectorAll("#sug-acc");
+    if (dataKeys.length > 0) {
+      let uniqueDataKeys = [...dataKeys];
+      let shuffledDataKeys = [];
 
-    for (let i = 0; i < 3; i++) {
-      const dataKeyIndex = Math.floor(Math.random() * uniqueDataKeys.length);
-      const dataKey = uniqueDataKeys[dataKeyIndex];
-      uniqueDataKeys.splice(dataKeyIndex, 1);
+      // Shuffle the data keys
+      while (uniqueDataKeys.length) {
+        const randomIndex = Math.floor(Math.random() * uniqueDataKeys.length);
+        shuffledDataKeys.push(uniqueDataKeys[randomIndex]);
+        uniqueDataKeys.splice(randomIndex, 1);
+      }
 
-      const specificDataRef = child(sugDB, dataKey);
+      // Update the HTML with the shuffled data
+      for (let i = 0; i < 3; i++) {
+        const specificDataRef = child(sugDB, shuffledDataKeys[i]);
 
-      onValue(specificDataRef, (snapshot) => {
-        const data = snapshot.val();
-        const imgLink = data.imgLink;
-        const accountName = data.accountName;
+        onValue(specificDataRef, (snapshot) => {
+          const data = snapshot.val();
+          const imgLink = data.imgLink;
+          const accountName = data.accountName;
 
-        sugImgList[i].src = imgLink;
-        sugAccList[i].textContent = accountName;
-      });
+          sugImgList[i].src = imgLink;
+          sugAccList[i].textContent = accountName;
+        });
+      }
     }
-  }
-});
-
+  });
+}
 
