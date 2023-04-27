@@ -67,6 +67,9 @@ newDataRef = ({
 
 //push(cardDB, newDataRef)
 
+// Initialize index to 0 to start at the first element
+let index = 0;
+
 // Get all .ctg-card elements
 const ctgCards = document.querySelectorAll('.ctg-card');
 
@@ -78,28 +81,110 @@ ctgCards.forEach((card) => {
     const specificDataRef = child(cardDB, dataKey);
     onValue(specificDataRef, (snapshot) => {
       const data = snapshot.val();
-      const youtubeLink = data.youtubeLink;
-      const text = data.text;
-      const title = data.title;
+      if (data) {
+        const youtubeLink = data.youtubeLink;
+        const text = data.text;
+        const title = data.title;
 
-      // Update the HTML with the retrieved data
-      const youtubeLinkDiv = document.getElementById("youtube-link");
-      youtubeLinkDiv.innerHTML = `
-        ${youtubeLink}
-      `;
-    
-      const titleEl = document.getElementById("title");
-      titleEl.innerText = title;
-    
-      const summaryEl = document.getElementById("summary");
-      summaryEl.innerText = text;
-      
-      const modal = document.querySelector('.modal');
-      modal.style.display = 'block';
+        // Update the HTML with the retrieved data
+        const youtubeLinkDiv = document.getElementById("youtube-link");
+        youtubeLinkDiv.innerHTML = `
+          ${youtubeLink}
+        `;
+
+        const titleEl = document.getElementById("title");
+        titleEl.innerText = title;
+
+        const summaryEl = document.getElementById("summary");
+        summaryEl.innerText = text;
+        
+        index = 0;
+
+        const modal = document.querySelector('.modal');
+        modal.style.display = 'block';
+      } else {
+        alert(`No Content yet.`);
+      }
     });
   });
 });
 
+
+// Function to display the next card in the modal
+function nextCard() {
+  // Get all .ctg-card elements
+  const ctgCards = document.querySelectorAll('.ctg-card');
+  
+  // Increment index and wrap around if it exceeds the number of cards
+  index = (index + 1) % ctgCards.length;
+  
+  // Retrieve data from the database based on the data-key attribute of the next card
+  const dataKey = ctgCards[index].getAttribute('data-key');
+  const specificDataRef = child(cardDB, dataKey);
+  onValue(specificDataRef, (snapshot) => {
+    const data = snapshot.val();
+    const youtubeLink = data.youtubeLink;
+    const text = data.text;
+    const title = data.title;
+
+    // Update the HTML with the retrieved data
+    const youtubeLinkDiv = document.getElementById("youtube-link");
+    youtubeLinkDiv.innerHTML = `
+      ${youtubeLink}
+    `;
+  
+    const titleEl = document.getElementById("title");
+    titleEl.innerText = title;
+  
+    const summaryEl = document.getElementById("summary");
+    summaryEl.innerText = text;
+  });
+}
+
+// Function to display the previous card in the modal
+function prevCard() {
+  // Get all .ctg-card elements
+  const ctgCards = document.querySelectorAll('.ctg-card');
+  
+  // Decrement index and wrap around if it goes below 0
+  index = (index - 1 + ctgCards.length) % ctgCards.length;
+  
+  // Retrieve data from the database based on the data-key attribute of the previous card
+  const dataKey = ctgCards[index].getAttribute('data-key');
+  const specificDataRef = child(cardDB, dataKey);
+  onValue(specificDataRef, (snapshot) => {
+    const data = snapshot.val();
+    const youtubeLink = data.youtubeLink;
+    const text = data.text;
+    const title = data.title;
+
+    // Update the HTML with the retrieved data
+    const youtubeLinkDiv = document.getElementById("youtube-link");
+    youtubeLinkDiv.innerHTML = `
+      ${youtubeLink}
+    `;
+  
+    const titleEl = document.getElementById("title");
+    titleEl.innerText = title;
+  
+    const summaryEl = document.getElementById("summary");
+    summaryEl.innerText = text;
+  });
+}
+
+const nextBtn = document.querySelector('.next-btn');
+const backBtn = document.querySelector('.back-btn');
+
+nextBtn.addEventListener('click', nextCard);
+backBtn.addEventListener('click', prevCard);
+
+
+const modal = document.querySelector('.modal');
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
 onValue(sugDB, (snapshot) => {
   const data = snapshot.val();
