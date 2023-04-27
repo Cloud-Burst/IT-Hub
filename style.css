@@ -239,7 +239,7 @@ section {
   align-items: center;
   white-space: nowrap;
   font-weight: bold;
-  border: 5px double black;
+  border: 5px double #00FFFF;
   border-radius: 30px;
   background-color: rgba(255, 255, 255, .3);
   transition: .5s all;
@@ -340,7 +340,7 @@ footer p {
 }
 
 .suggestion {
-  max-width: 200px;
+  width: 200px;
   border: 2px groove black;
   border-radius: 20px;
   background-color: #333;

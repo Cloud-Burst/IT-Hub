@@ -83,6 +83,7 @@ ctgCards.forEach((card) => {
       const data = snapshot.val();
       if (data) {
         const youtubeLink = data.youtubeLink;
+        //console.log(youtubeLink)
         const text = data.text;
         const title = data.title;
 
