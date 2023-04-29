@@ -1,9 +1,3 @@
-.blur {
-  filter: blur(3px);
-  opacity: .5;
-  transform: scale(.98);
-}
-
 .header-imgs {
   position: relative;
   width: 100vw;
@@ -239,4 +233,73 @@ section {
 
 .feature:hover .back {
   transform: rotateY(0deg);
+}
+
+.ctg-block-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ctg-block {
+  border-radius: 25px;
+  border: 5px double #00FFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: calc((80% - 40px) / 3);
+  margin: 0 10px 10px;
+  position: relative;
+}
+
+.ctg-block:nth-child(3n+1),
+.ctg-block:nth-child(3n+2),
+.ctg-block:nth-child(3n+3) {
+  margin-top: 0;
+}
+
+.ctg-block:nth-child(n+4) {
+  width: calc((80% - 30px) / 2);
+  margin-top: 20px;
+}
+
+
+.ctg-block:hover {
+  cursor: pointer;
+}
+
+.ctg-block:hover .ctg-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bg-img {
+  filter: brightness(0.8);
+  border-radius: 25px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: -1;
+}
+
+.ctg-text {
+  border-radius: 25px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: all 0.8s ease-in-out;
+}
+
+.ctg-text h2 {
+  margin-top: 0;
+}
+
+.ctg-text p {
+  margin-bottom: 0;
 }

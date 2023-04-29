@@ -26,3 +26,29 @@ addHoverEffect('.card-container', '.ctg-card');
 
 export { addHoverEffect };
 
+function handleFormSubmit() {
+  // Get the form element
+  const form = document.querySelector("form");
+
+  // Add a submit event listener to the form element
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // Get the values of the input fields
+    const name = document.querySelector("#name").value;
+    const email = document.querySelector("#email").value;
+    const message = document.querySelector("#message").value;
+
+    // Check if any of the fields are empty
+    if (name === "" || email === "" || message === "") {
+      // Show an alert message if any of the fields are empty
+      alert("All fields are required.");
+    } else {
+      // Show a thank you message and reset the form
+      alert(`Thank you! ${name} We have received your message.`);
+      form.reset();
+    }
+  });
+}
+
+export { handleFormSubmit };

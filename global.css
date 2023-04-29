@@ -26,6 +26,12 @@ font-family: 'Chakra Petch', sans-serif;z
     border: 3px double #010101;
 }
 
+.blur {
+  filter: blur(3px);
+  opacity: .5;
+  transform: scale(.98);
+}
+
 h1, h2 {
   font-family: 'Abril Fatface', cursive;
   color: white;

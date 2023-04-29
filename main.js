@@ -1,47 +1,42 @@
+import { addHoverEffect, handleFormSubmit } from './utils.js';
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+import { getDatabase, ref, push, onValue, child } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+
+handleFormSubmit();
+
+
 const imgs = document.querySelectorAll("#img-container");
-let currentImg = 0
+let currentImg = 0;
+let timerId;
+
 imgs[currentImg].classList.add("slide");
 
 // Image function
 const nextImage = () => {
   imgs[currentImg].classList.remove("slide");
-  currentImg++;
-  if (currentImg >= imgs.length) {
-    currentImg = 0;
-  }
+  currentImg = (currentImg + 1) % imgs.length;
   imgs[currentImg].classList.add("slide");
 };
 
-setInterval(nextImage, 5000);
+// Start the timer
+const startTimer = () => {
+  timerId = setInterval(nextImage, 5000);
+};
 
-import { addHoverEffect } from './utils.js';
+// Stop the timer
+const stopTimer = () => {
+  clearInterval(timerId);
+};
 
-
-// Get the form element
-const form = document.querySelector("form");
-
-// Add a submit event listener to the form element
-form.addEventListener("submit", function(event) {
-  event.preventDefault();
-
-  // Get the values of the input fields
-  const name = document.querySelector("#name").value;
-  const email = document.querySelector("#email").value;
-  const message = document.querySelector("#message").value;
-
-  // Check if any of the fields are empty
-  if (name === "" || email === "" || message === "") {
-    // Show an alert message if any of the fields are empty
-    alert("All fields are required.");
-  } else {
-    // Show a thank you message and reset the form
-    alert(`Thank you! ${name} We have received your message.`);
-    form.reset();
-  }
+// Attach event listener to each image
+imgs.forEach(img => {
+  img.addEventListener("mouseover", stopTimer);
+  img.addEventListener("mouseout", startTimer);
 });
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getDatabase, ref, push, onValue, child } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+// Start the timer initially
+startTimer();
+
 
 const appSetting = {
   databaseURL: "https://proposal-db-default-rtdb.asia-southeast1.firebasedatabase.app"
@@ -52,28 +47,11 @@ const database = getDatabase(app);
 const cardDB = ref(database, "progList");
 const sugDB = ref(database, "suggestionProfiles");
 
-const title = "";
-
-const youtubeLink = '<iframe width="560" height="315" src="https://www.youtube.com/embed/n-PgPuFhrEY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
-
-const text = "This is a new video.";
-
-let newDataRef;
-newDataRef = ({
-  title: title,
-  youtubeLink: youtubeLink,
-  text: text
-});
-
-//push(cardDB, newDataRef)
-
-// Initialize index to 0 to start at the first element
 let i;
 
-// Get all .ctg-card elements
 const ctgCards = document.querySelectorAll('.ctg-card');
 
-// Attach a click event listener to each .ctg-card element
+// click event listener to each .ctg-card element
 ctgCards.forEach((card, index) => {
   card.addEventListener('click', () => {
     i = index;
@@ -84,7 +62,6 @@ ctgCards.forEach((card, index) => {
       const data = snapshot.val();
       if (data) {
         const youtubeLink = data.youtubeLink;
-        //console.log(youtubeLink)
         const text = data.text;
         const title = data.title;
 
@@ -113,10 +90,8 @@ ctgCards.forEach((card, index) => {
 });
 
 
-// Function to display the next card in the modal
 function nextCard() {
   shuffleData();
-  // Get all .ctg-card elements
   const ctgCards = document.querySelectorAll('.ctg-card');
   
   // Increment index and wrap around if it exceeds the number of cards
@@ -146,10 +121,8 @@ function nextCard() {
   });
 }
 
-// Function to display the previous card in the modal
 function prevCard() {
   shuffleData();
-  // Get all .ctg-card elements
   const ctgCards = document.querySelectorAll('.ctg-card');
   
   // Decrement index and wrap around if it goes below 0
