@@ -36,4 +36,6 @@ function filterCards(filterText) {
   });
 }
 
+addHoverEffect('.card-container', '.ctg-card');
+console.log(addHoverEffect)
 //.

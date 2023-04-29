@@ -68,14 +68,15 @@ newDataRef = ({
 //push(cardDB, newDataRef)
 
 // Initialize index to 0 to start at the first element
-let index = 0;
+let i;
 
 // Get all .ctg-card elements
 const ctgCards = document.querySelectorAll('.ctg-card');
 
 // Attach a click event listener to each .ctg-card element
-ctgCards.forEach((card) => {
+ctgCards.forEach((card, index) => {
   card.addEventListener('click', () => {
+    i = index;
     // Retrieve data from the database based on the data-key attribute
     const dataKey = card.getAttribute('data-key');
     const specificDataRef = child(cardDB, dataKey);
@@ -99,7 +100,6 @@ ctgCards.forEach((card) => {
         const summaryEl = document.getElementById("summary");
         summaryEl.innerText = text;
         
-        index = 0;
 
         const modal = document.querySelector('.modal');
         modal.style.display = 'block';
@@ -120,10 +120,10 @@ function nextCard() {
   const ctgCards = document.querySelectorAll('.ctg-card');
   
   // Increment index and wrap around if it exceeds the number of cards
-  index = (index + 1) % ctgCards.length;
+  i = (i + 1) % ctgCards.length;
   
   // Retrieve data from the database based on the data-key attribute of the next card
-  const dataKey = ctgCards[index].getAttribute('data-key');
+  const dataKey = ctgCards[i].getAttribute('data-key');
   const specificDataRef = child(cardDB, dataKey);
   onValue(specificDataRef, (snapshot) => {
     const data = snapshot.val();
@@ -153,10 +153,10 @@ function prevCard() {
   const ctgCards = document.querySelectorAll('.ctg-card');
   
   // Decrement index and wrap around if it goes below 0
-  index = (index - 1 + ctgCards.length) % ctgCards.length;
+  i = (i - 1 + ctgCards.length) % ctgCards.length;
   
   // Retrieve data from the database based on the data-key attribute of the previous card
-  const dataKey = ctgCards[index].getAttribute('data-key');
+  const dataKey = ctgCards[i].getAttribute('data-key');
   const specificDataRef = child(cardDB, dataKey);
   onValue(specificDataRef, (snapshot) => {
     const data = snapshot.val();
@@ -178,6 +178,7 @@ function prevCard() {
     
   });
 }
+
 
 const nextBtn = document.querySelector('.next-btn');
 const backBtn = document.querySelector('.back-btn');

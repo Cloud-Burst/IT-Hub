@@ -8,6 +8,7 @@
   <title>IT LEARN HUB</title>
 
   <!-- Custom Styles -->
+  <link rel="stylesheet" href="global.css">
   <link rel="stylesheet" href="style.css">
 
 
@@ -22,8 +23,22 @@
         </a>
         <ul>
           <li><a href="#">Home</a></li>
-          <li><a href="./about.html">About</a></li>
-          <li><a href="./Learn.html">Learn</a></li>
+          <li>
+            <a href="./about.html" class="dropdown">About</a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Option 1</a></li>
+                <li><a href="#">Option 2</a></li>
+                <li><a href="#">Option 3</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="./Learn.html" class="dropdown">Learn</a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Option 4</a></li>
+                <li><a href="#">Option 5</a></li>
+                <li><a href="#">Option 6</a></li>
+              </ul>
+          </li>
           <li><a href="#contacts">Contacts</a></li>
         </ul>
       </nav>
@@ -77,10 +92,44 @@
     
   </header>
   
-  <section id="about">
-    <h2>About</h2>
-      <p>Text about the website. To create a comprehensive IT course catalog that covers a wide range of diverse topics in technology education, with the aim of providing learners of all levels with a comprehensive resource for enhancing their IT education.</p>
-  </section>
+  
+  <section class="features">
+    <h2>Features</h2>
+  <div class="feature-container">  
+  <div class="feature">
+    <div class="front">
+      <h3>Explore Courses</h3>
+      <p>Course catalog listing available courses and their descriptions</p>
+    </div>
+    <div class="back">
+      <h3>Expert Instructors</h3>
+      <p>Learn from the industry's leading instructors who provide practical insights</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="front">
+      <h3>Flexible Learning</h3>
+      <p>Learn at your own pace with 24/7 access to course materials and support</p>
+    </div>
+    <div class="back">
+      <h3>Tailored Learning</h3>
+      <p>Personalized learning based on student preferences and learning style</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="front">
+      <h3>Course Recommendations</h3>
+      <p>Course recommendations based on student interests and career goals</p>
+    </div>
+    <div class="back">
+        <h3>Track Your Learning</h3>
+      <p>Checkpoints that serve as a way to monitor progress throughout a course, ensuring that they are on track to meet their learning objectives.</p>
+    </div>
+  </div>
+  </div>
+</section>
   
   <section id="categories">
   <div class="ctg-title" id="index-ctg">
@@ -186,7 +235,7 @@
           <h3>CS</h3>
         </div>
         
-        <div class="ctg-card">
+        <div class="ctg-card" data-key="cs">
           <h3>Cyber Security</h3>
         </div>
         

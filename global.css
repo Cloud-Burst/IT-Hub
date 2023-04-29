@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Chakra+Petch&display=swap');
+
+/*
+font-family: 'Abril Fatface', cursive;
+font-family: 'Chakra Petch', sans-serif;z
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+*::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #010101;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #47cf73;
+    border-radius: 9px;
+    border: 3px double #010101;
+}
+
+h1, h2 {
+  font-family: 'Abril Fatface', cursive;
+  color: white;
+}
+
+h3, p {
+  font-family: 'Chakra Petch', sans-serif;
+  color: white;
+}
+
+body {
+  background-image: url("./assets/bg.jpg");
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+#nav-logo {
+  width: 50px;
+  height: 50px;
+  scale: 1.4;
+  margin-left: 10px;
+}
+
+nav {
+  position: fixed;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  font-size: 20px;
+  z-index: 99;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 2s ease;
+  width: 100%;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  font-weight: bold;
+  transition: color 0.9s ease-in-out;
+}
+
+a:hover {
+  color: #00FFFF;
+}
+
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px); /* added 10px to add some space between the dropdown and the menu */
+  left: 0;
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  display: block;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #f6f6f6;
+}
+
+
+
+.ctg-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow-y: hidden;
+}
+
+.card-container {
+  position: relative;
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+}
+
+.ctg-subtitle {
+  position: absolute;
+  top: 3%;
+  left: 2%;
+}
+
+.ctg-card {
+  min-width: 100px;
+  height: 100px;
+  margin: 20px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  white-space: nowrap;
+  font-weight: bold;
+  border: 5px double #00FFFF;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, .3);
+  transition: .5s all;
+}
+
+.ctg-card i {
+  font-size: 60px;
+  color: black;
+}
+
+.ctg-title {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  padding-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+footer {
+  width: 100%;
+  background-color: rgba(0, 0, 0, .7);
+  color: white;
+}
+
+.foot-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0;
+}
+
+#foot-logo {
+  width: 100px;
+  height: 100px;
+}
+
+.foot1 {
+  width: 30%;
+  display: flex;
+}
+
+.foot2 {
+  width: 30%;
+}
+
+.foot2 ul {
+  list-style: none;
+}
+
+.foot2 li {
+  padding: 5px;
+}
+
+.foot3 {
+  width: 30%;
+}
+
+footer p {
+  text-align: center;
+  padding: 10px 0;
+}
+
