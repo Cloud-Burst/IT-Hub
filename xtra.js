@@ -163,14 +163,23 @@ const backBtn = document.querySelector('.back-btn');
 nextBtn.addEventListener('click', nextCard);
 backBtn.addEventListener('click', prevCard);
 
-
 const modal = document.querySelector('.modal');
 window.onclick = function(event) {
   if (event.target == modal) {
+    // Stop video from playing
+    const youtubeLinkDiv = document.getElementById("youtube-link");
+    const video = youtubeLinkDiv.querySelector('iframe');
+    if (video) {
+      const videoSrc = video.getAttribute('src');
+      video.setAttribute('src', '');
+      video.setAttribute('src', videoSrc);
+    }
+
     modal.style.display = "none";
     shuffleData();
   }
 }
+
 
 const sugImgList = document.querySelectorAll("#sug-img");
 const sugAccList = document.querySelectorAll("#sug-acc");
