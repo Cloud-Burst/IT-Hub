@@ -1,20 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Chakra+Petch&display=swap');
+
+html {
+    font-family: 'Chakra Petch', sans-serif;
+    color: white;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
-  padding: 20px;
+  background-image: url("./assets/bg.jpg");
+  background-size: cover;
 }
 
 .container {
   max-width: 400px;
   margin: 0 auto;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(2px);
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  padding: 40px;
 }
 
 h2 {
   text-align: center;
+}
+
+.form {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
 }
 
 fieldset {
@@ -24,9 +36,10 @@ fieldset {
 }
 
 legend {
-  font-size: 18px;
+  font-size: 25px;
   font-weight: bold;
   margin-bottom: 10px;
+  color: #00FFFF;
 }
 
 label {
@@ -40,7 +53,7 @@ input[type="password"] {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 15px;
   margin-bottom: 20px;
   box-sizing: border-box;
 }
@@ -49,12 +62,15 @@ button[type="submit"],
 button {
   background-color: #4CAF50;
   color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 20px;
   width: 100%;
+  padding: 15px 0;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 20px 0;
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
 }
 
 button:hover {
@@ -71,5 +87,6 @@ a:hover {
 }
 
 .hidden {
+  opacity: 0;
   display: none;
 }

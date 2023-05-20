@@ -38,6 +38,7 @@ const signInLink = document.querySelector('#sign-in-link');
 const regLink = document.querySelector('#register-link');
 const googleSignInButton = document.querySelector('#google-sign-in');
 
+authForm.classList.add('hidden');
 
 signInLink.addEventListener('click', () => {
   authForm.classList.remove('hidden')
