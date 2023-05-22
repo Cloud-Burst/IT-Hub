@@ -8,12 +8,19 @@ body {
   background-size: cover;
 }
 
-header {
+header, .abt-sec {
+  position: relative;
   width: 100%;
   height: 100vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.abt-sec h2 {
+  top: -10%;
+  position: absolute;
+  display: block;
 }
 
 .head-icons {

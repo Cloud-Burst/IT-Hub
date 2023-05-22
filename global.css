@@ -255,3 +255,9 @@ footer p {
   text-align: center;
   transform: translateY(-50%);
 }
+
+
+video {
+  width: 200px;
+  height: 200px;
+}
