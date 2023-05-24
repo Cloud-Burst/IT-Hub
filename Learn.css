@@ -7,6 +7,17 @@
   padding-top: 10%;
 }
 
+.ctg-card img {
+  width: 60px;
+  height: 60px;
+}
+
+#database img {
+  filter: brightness(1.5);
+  width: 80px;
+  height: 80px;
+}
+
 .filter i {
   margin-right: 20px;
   transform: scaleX(-1);
@@ -25,17 +36,17 @@
   font-size: 30px;
 }
 
-input[type="text"] {
+#search {
   margin: 10px;
   background: none;
-  border: none;
+  border: 2px solid #00FFFF;
   outline: none;
   max-width: 190px;
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 9999px;
   box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
-  color: white;
+  color: #FFFFFF;
 }
 
 #youtube-link {

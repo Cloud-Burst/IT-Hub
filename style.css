@@ -181,7 +181,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 400px;
+  height: 300px;
   width: calc((80% - 40px) / 3);
   margin: 0 10px 10px;
   position: relative;
@@ -201,6 +201,7 @@ section {
 
 .ctg-block:hover {
   cursor: pointer;
+  
 }
 
 .ctg-block:hover .ctg-text {
@@ -209,7 +210,7 @@ section {
 }
 
 .bg-img {
-  filter: brightness(0.8);
+  filter: brightness(0.7);
   border-radius: 25px;
   height: 100%;
   width: 100%;
