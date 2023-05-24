@@ -1,0 +1,92 @@
+* {
+  
+}  
+  
+body {
+  height: 100vh;
+  color: white;
+}
+
+.postbox-container {
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Styles for the post box */
+.post-box {
+  background-color: #333;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.post-box textarea {
+  width: 100%;
+  resize: vertical;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+.post-box button {
+  background-color: #1da1f2;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.post-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Styles for the post display */
+.post-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+
+.post {
+  color: white;
+  background-color: rgba(240, 240, 240, 0.4);
+  width: 80%;
+  height: 40%;
+  margin: 15px 0;
+}
+
+.post-display p {
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.post-display strong {
+  font-weight: bold;
+}
+
+.post-display .post-info {
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  background-color: #333;
+}
+
+.post-display .post-info span {
+  margin-right: 10px;
+}
+

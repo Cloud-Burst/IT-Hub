@@ -1,3 +1,4 @@
+
 function addHoverEffect(parentSelector, cardSelector) {
   const cardSections = document.querySelectorAll(parentSelector);
 
@@ -52,3 +53,18 @@ function handleFormSubmit() {
 }
 
 export { handleFormSubmit };
+
+// Function to check if the user is signed in
+function checkSignIn(auth) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in, continue with your logic
+      console.log("User is signed in");
+    } else {
+      // User is not signed in, redirect to index.html
+      window.location.href = "./index.html";
+    }
+  });
+}
+
+export { checkSignIn };

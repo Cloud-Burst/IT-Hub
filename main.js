@@ -1,8 +1,23 @@
-import { addHoverEffect, handleFormSubmit } from './utils.js';
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getDatabase, ref, push, onValue, child } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+import { checkSignIn } from "./utils.js";
 
-handleFormSubmit();
+// Initialize Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyBzcramTbR5xW1ldGAq1m0Qk6Sjkhu89t0",
+  authDomain: "proposal-db.firebaseapp.com",
+  databaseURL: "https://proposal-db-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "proposal-db",
+  storageBucket: "proposal-db.appspot.com",
+  messagingSenderId: "295239881286",
+  appId: "1:295239881286:web:4fe111a1c755839f41f047"
+};
+
+const app = initializeApp(firebaseConfig, {});
+const auth = getAuth();
+
+checkSignIn(auth);
 
 
 const imgs = document.querySelectorAll("#img-container");

@@ -13,11 +13,12 @@ const firebaseConfig = {
   messagingSenderId: "295239881286",
   appId: "1:295239881286:web:4fe111a1c755839f41f047"
 };
+const auth = getAuth();
 const app = initializeApp(firebaseConfig);
 
 const database = getDatabase(app);
 const accDB = ref(database, "accounts");
-const auth = getAuth();
+const gaccDB = ref(database, "google accounts"); 
 
 // elements
 const authForm = document.querySelector('#auth-form');
@@ -186,7 +187,7 @@ googleSignInButton.addEventListener('click', async () => {
     const email = user.email;
 
     // Check if user already exists in database
-    const snapshot = await get(child(accDB, 'users'));
+    const snapshot = await get(child(gaccDB, 'users'));
     const users = snapshot.val() || {};
     const existingUser = Object.values(users).find((user) => user.email === email && user.name === name);
     if (existingUser) {
@@ -198,7 +199,7 @@ googleSignInButton.addEventListener('click', async () => {
     }
 
     // Create new user
-    const newUserRef = push(child(accDB, 'users'));
+    const newUserRef = push(child(gaccDB, 'users'));
     const userRef = {
       name: name,
       email: email,
