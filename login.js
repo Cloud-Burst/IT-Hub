@@ -177,8 +177,6 @@ registerForm.addEventListener('submit', async (event) => {
 
 });
 
-
-console.log("test");
 // Sign in with Google
 const provider = new GoogleAuthProvider();
 googleSignInButton.addEventListener('click', async () => {
@@ -207,11 +205,11 @@ googleSignInButton.addEventListener('click', async () => {
       email: email,
     };
     set(newUserRef, userRef);
-    console.log('New user created with key:', newUserRef.key);
 
     // Store user information in local storage
     const newUser = { key: newUserRef.key, ...userRef };
     localStorage.setItem('user', JSON.stringify(newUser));
+    alert(newUser);
     window.location.href = 'main.html';
   } catch (error) {
     console.error('Error signing in with Google:', error);

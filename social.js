@@ -24,8 +24,10 @@ const msgDB = ref(database, "messages");
 
 // Function to save the user's data to Firebase
 function saveData() {
-  var name = localStorage.getItem('name');
-  var email = localStorage.getItem('email');
+  let storedUser = localStorage.getItem('user');
+  let user = JSON.parse(storedUser);
+  var name = user.name;
+  var email = user.email;
   var message = document.getElementById('message').value;
 
   // Get the current timestamp
