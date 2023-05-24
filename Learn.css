@@ -39,6 +39,7 @@ input[type="text"] {
 }
 
 #youtube-link {
+  padding: 5%;
   display: flex;
   justify-content: center;
 }
@@ -60,8 +61,17 @@ input[type="text"] {
   background-color: gray;
   margin: 15% auto;
   padding: 20px;
-  border: 1px solid #888;
+  border: 3px solid #00FFFF;
   width: 80%;
+}
+
+#title {
+  text-decoration: underline;
+  color: #00FFFF;
+}
+
+#summary {
+  padding: 3%;
 }
 
 .sug-container {
@@ -99,7 +109,19 @@ input[type="text"] {
 }
 
 .buttons button{
+  width: 7em;
   padding: 10px;
   border: 2px solid black;
   border-radius: 12px;
+  font-size: 1em;
+}
+
+.next-btn {
+  box-shadow: 6px 6px 0 black;
+  transform: skewX(-15deg);
+}
+
+.back-btn {
+  box-shadow: 6px 6px 0 black;
+  transform: skewX(15deg);
 }
