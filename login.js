@@ -13,8 +13,8 @@ const firebaseConfig = {
   messagingSenderId: "295239881286",
   appId: "1:295239881286:web:4fe111a1c755839f41f047"
 };
+const app = initializeApp(firebaseConfig, {});
 const auth = getAuth();
-const app = initializeApp(firebaseConfig);
 
 const database = getDatabase(app);
 const accDB = ref(database, "accounts");
@@ -177,6 +177,8 @@ registerForm.addEventListener('submit', async (event) => {
 
 });
 
+
+console.log("test");
 // Sign in with Google
 const provider = new GoogleAuthProvider();
 googleSignInButton.addEventListener('click', async () => {
