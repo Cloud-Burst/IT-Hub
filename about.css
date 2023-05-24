@@ -8,8 +8,7 @@ body {
   background-size: cover;
 }
 
-header, .abt-sec {
-  position: relative;
+header{
   width: 100%;
   height: 100vh;
   display: flex;
@@ -17,14 +16,13 @@ header, .abt-sec {
   align-items: center;
 }
 
-.abt-sec h2 {
-  top: -10%;
-  position: absolute;
-  display: block;
-}
-
 .head-icons {
   flex-basis: 35%;
+}
+
+.head-icons video{
+  width: 300px;
+  height: 300px;
 }
 
 .head-icons img{
@@ -38,8 +36,9 @@ header, .abt-sec {
   color: white;
   background-color: rgba(0, 0, 0, .4);
   border-radius: 25px;
-  border: groove 2px white;
+  border: groove 3px #00FFFF;
   padding: 10px;
+  margin: 0 5%;
 }
 
 h2 {
@@ -53,8 +52,22 @@ p {
 }
 
 .abt-sec {
+  width: 90%;
+  margin: 0 3%;
+  border-left: 5px solid #00FFFF;
+  border-radius: 12px;
+  padding: 3rem 1%;
   height: 35vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: white;
+}
+
+video {
+  padding: 3%;
+  width: 225px;
+  height: 225px;
 }
 
 
@@ -75,34 +88,49 @@ p {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  flex-direction: column;
   width: 100vw;
-  height: 60vh;
+  height: 80vh;
+  padding: 3rem 0;
+}
+
+.devs h2 {
+  white-space: nowrap;
+  font-size: 0.8rem;
+}
+
+.bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .dev-card {
-  width: 250px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: orchid;
-  border: 4px inset blueviolet;
+  background-color: rgba(0, 0, 0, .4);
+  backdrop-filter: blur(0.05);
+  border: 4px inset #00FFFF;
   border-radius: 20px;
-  padding: 5px;
+  padding: 0 20px 25px 20px;
 }
 
 .profile {
-  width: 60%;
-  height: 60%;
-  padding: 7px;
+  width: 65%;
+  height: 65%;
+  padding-bottom: 15%;
 }
 
 .profile img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: ridge 3px red;
+  border: ridge 3px orchid;
 }
 
 .dev-social {

@@ -209,6 +209,10 @@ footer {
 
 .foot2 {
   width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .foot2 ul {
@@ -254,10 +258,4 @@ footer p {
   top: 50%;
   text-align: center;
   transform: translateY(-50%);
-}
-
-
-video {
-  width: 200px;
-  height: 200px;
 }
