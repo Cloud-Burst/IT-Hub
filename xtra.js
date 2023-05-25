@@ -1,4 +1,4 @@
-import { checkSignIn, handleCourseClick, courseList, saveNote, loadNotes, clearAllNotes, createListItem, noteBtn, handleNoteBtnClick, handleClose } from "./utils.js";
+import { addHoverEffect, handleFormSubmit, checkSignIn, handleCourseClick, courseList, saveNote, loadNotes, clearAllNotes, createListItem, noteBtn, handleNoteBtnClick, handleClose } from "./utils.js";
 
 const noteX = document.querySelector(".close");
 noteX.addEventListener('click', handleClose);

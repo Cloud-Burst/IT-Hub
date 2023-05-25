@@ -5,27 +5,6 @@ import { checkSignIn, handleCourseClick, courseList } from "./utils.js";
 
 courseList.addEventListener('click', handleCourseClick);
 
-// Event listener for the Submit button
-const submitButton = document.querySelector('.note-saves button[type="submit"]');
-submitButton.addEventListener('click', saveNote);
-
-// Event listener for the Clear All button
-const clearButton = document.querySelector('.note-saves button[type="reset"]');
-clearButton.addEventListener('click', clearAllNotes);
-
-// Event delegation for removing list items
-const noteList = document.querySelector('.note-content ul');
-noteList.addEventListener('click', (event) => {
-  if (event.target.tagName === 'LI') {
-    const listItem = event.target;
-    removeListItem(listItem);
-  }
-});
-
-// Load saved notes on page load
-loadNotes();
-
-
 // Initialize Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyBzcramTbR5xW1ldGAq1m0Qk6Sjkhu89t0",
@@ -40,7 +19,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig, {});
 const auth = getAuth();
 
-//checkSignIn(auth);
+checkSignIn(auth);
 
 
 const imgs = document.querySelectorAll("#img-container");

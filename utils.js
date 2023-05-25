@@ -73,7 +73,7 @@ export { checkSignIn };
 export const handleCourseClick = (event) => {
   const clickedCourse = event.target;
   if (clickedCourse.tagName === 'LI') {
-    window.location.href = './learn.html';
+    window.location.href = './Learn.html';
   }
 };
 
