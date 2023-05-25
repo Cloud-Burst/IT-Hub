@@ -68,3 +68,13 @@ function checkSignIn(auth) {
 }
 
 export { checkSignIn };
+
+
+export const handleCourseClick = (event) => {
+  const clickedCourse = event.target;
+  if (clickedCourse.tagName === 'LI') {
+    window.location.href = './learn.html';
+  }
+};
+
+export const courseList = document.getElementById('course-list');

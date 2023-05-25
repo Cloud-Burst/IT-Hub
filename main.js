@@ -1,7 +1,10 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
 import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
-import { checkSignIn } from "./utils.js";
+import { checkSignIn, handleCourseClick, courseList } from "./utils.js";
+
+courseList.addEventListener('click', handleCourseClick);
+
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -17,7 +20,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig, {});
 const auth = getAuth();
 
-checkSignIn(auth);
+//checkSignIn(auth);
 
 
 const imgs = document.querySelectorAll("#img-container");
@@ -30,6 +33,8 @@ imgs[currentImg].classList.add("slide");
 const nextImage = () => {
   imgs[currentImg].classList.remove("slide");
   currentImg = (currentImg + 1) % imgs.length;
+  imgs[currentImg].style.display = "none";
+  imgs[currentImg].style.display = "flex";
   imgs[currentImg].classList.add("slide");
 };
 
@@ -51,3 +56,13 @@ imgs.forEach(img => {
 
 // Start the timer initially
 startTimer();
+
+
+const ctgBlock = document.querySelectorAll(".ctg-block");
+
+ctgBlock.forEach(block => {
+  block.addEventListener("click", () => {
+    window.location.href = "./learn.html";
+  });
+});
+

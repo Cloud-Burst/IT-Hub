@@ -1,4 +1,7 @@
-import { addHoverEffect, handleFormSubmit } from './utils.js';
+import { addHoverEffect, handleFormSubmit, handleCourseClick, courseList } from './utils.js';
+
+courseList.addEventListener('click', handleCourseClick);
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getDatabase, ref, push, onValue, child } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
