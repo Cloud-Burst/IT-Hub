@@ -169,7 +169,7 @@ registerForm.addEventListener('submit', async (event) => {
       
       authForm.classList.remove('hidden')
       registerForm.classList.add('hidden')
-      console.log("Account successfully created")
+      alert("Account successfully created")
     })
     .catch((error) => {
   alert('An error occurred during registration. Please try again later.');

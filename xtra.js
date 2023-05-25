@@ -1,4 +1,8 @@
-import { addHoverEffect, handleFormSubmit, handleCourseClick, courseList } from './utils.js';
+import { checkSignIn, handleCourseClick, courseList, saveNote, loadNotes, clearAllNotes, createListItem, noteBtn, handleNoteBtnClick, handleClose } from "./utils.js";
+
+const noteX = document.querySelector(".close");
+noteX.addEventListener('click', handleClose);
+noteBtn.addEventListener('click', handleNoteBtnClick);
 
 courseList.addEventListener('click', handleCourseClick);
 
@@ -90,7 +94,7 @@ ctgCards.forEach((card, index) => {
         
         shuffleData();
       } else {
-        alert(`No Content yet.`);
+        alert(`No Content yet. Coming Soon`);
       }
     });
   });

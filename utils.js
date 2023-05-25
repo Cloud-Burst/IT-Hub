@@ -78,3 +78,73 @@ export const handleCourseClick = (event) => {
 };
 
 export const courseList = document.getElementById('course-list');
+
+// Function to save user input in local storage
+export function saveNote() {
+  const textarea = document.querySelector('.note-input');
+  const input = textarea.value.trim();
+  
+  if (input !== '') {
+    const notes = JSON.parse(localStorage.getItem('notes')) || [];
+    notes.push(input);
+    localStorage.setItem('notes', JSON.stringify(notes));
+    
+    createListItem(input);
+    textarea.value = '';
+  }
+}
+
+// Function to create a new list item
+export function createListItem(input) {
+  const ul = document.querySelector('.note-content ul');
+  const li = document.createElement('li');
+  li.textContent = input;
+  ul.appendChild(li);
+
+  // Add event listener to remove the list item on click
+  li.addEventListener('click', () => {
+    removeListItem(li);
+  });
+}
+
+// Function to remove a list item
+function removeListItem(li) {
+  const ul = li.parentNode;
+  ul.removeChild(li);
+  
+  const notes = JSON.parse(localStorage.getItem('notes')) || [];
+  const text = li.textContent;
+  const index = notes.indexOf(text);
+  
+  if (index !== -1) {
+    notes.splice(index, 1);
+    localStorage.setItem('notes', JSON.stringify(notes));
+  }
+}
+
+// Function to load saved notes from local storage
+export function loadNotes() {
+  const notes = JSON.parse(localStorage.getItem('notes')) || [];
+  notes.forEach((note) => {
+    createListItem(note);
+  });
+}
+
+// Function to clear all notes
+export function clearAllNotes() {
+  const ul = document.querySelector('.note-content ul');
+  ul.innerHTML = '';
+  localStorage.removeItem('notes');
+}
+
+export const noteBtn = document.querySelector('.note-btn');
+
+export function handleNoteBtnClick() {
+  const notes = document.querySelector('.notes');
+  notes.style.right = "0";
+}
+
+export function handleClose() {
+  const notes = document.querySelector('.notes');
+  notes.style.right = "-200px";
+}
