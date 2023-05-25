@@ -4,6 +4,23 @@ const noteX = document.querySelector(".close");
 noteX.addEventListener('click', handleClose);
 noteBtn.addEventListener('click', handleNoteBtnClick);
 
+// Event listener for the Submit button
+const submitButton = document.querySelector('.note-saves button[type="submit"]');
+submitButton.addEventListener('click', saveNote);
+
+// Event listener for the Clear All button
+const clearButton = document.querySelector('.note-saves button[type="reset"]');
+clearButton.addEventListener('click', clearAllNotes);
+
+// Event delegation for removing list items
+const noteList = document.querySelector('.note-content ul');
+noteList.addEventListener('click', (event) => {
+  if (event.target.tagName === 'LI') {
+    const listItem = event.target;
+    removeListItem(listItem);
+  }
+});
+
 courseList.addEventListener('click', handleCourseClick);
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
