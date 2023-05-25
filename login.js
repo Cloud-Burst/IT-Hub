@@ -192,7 +192,6 @@ googleSignInButton.addEventListener('click', async () => {
     const existingUser = Object.values(users).find((user) => user.email === email && user.name === name);
     if (existingUser) {
       // Store user information in local storage
-      console.log("successful")
       localStorage.setItem('user', JSON.stringify(existingUser));
       window.location.href = 'main.html';
       return;

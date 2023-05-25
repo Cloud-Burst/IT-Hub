@@ -146,5 +146,5 @@ export function handleNoteBtnClick() {
 
 export function handleClose() {
   const notes = document.querySelector('.notes');
-  notes.style.right = "-200px";
+  notes.style.right = "-500px";
 }
