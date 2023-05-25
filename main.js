@@ -20,7 +20,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig, {});
 const auth = getAuth();
 
-//checkSignIn(auth);
+checkSignIn(auth);
 
 
 const imgs = document.querySelectorAll("#img-container");
