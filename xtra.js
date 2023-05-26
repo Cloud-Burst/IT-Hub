@@ -1,5 +1,6 @@
 import { addHoverEffect, handleFormSubmit, checkSignIn, handleCourseClick, courseList, saveNote, loadNotes, clearAllNotes, createListItem, noteBtn, handleNoteBtnClick, handleClose } from "./utils.js";
 
+//work pls :3
 const noteX = document.querySelector(".close");
 noteX.addEventListener('click', handleClose);
 noteBtn.addEventListener('click', handleNoteBtnClick);

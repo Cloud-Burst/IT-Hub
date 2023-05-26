@@ -17,7 +17,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 
-checkSignIn(auth);
+//checkSignIn(auth);
 
 const database = getDatabase(app);
 const msgDB = ref(database, "messages");
