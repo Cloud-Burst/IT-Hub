@@ -143,10 +143,16 @@ export function handleNoteBtnClick() {
   const notes = document.querySelector('.notes');
   noteBtn.classList.add('off');
   notes.classList.add('slide');
+  var computedStyle = window.getComputedStyle(notes)
+  const x = computedStyle.getPropertyValue('right');
+  console.log(x);
 }
 
 export function handleClose() {
   const notes = document.querySelector('.notes');
   noteBtn.classList.remove('off');
   notes.classList.remove('slide');
+  var computedStyle = window.getComputedStyle(notes)
+  const x = computedStyle.getPropertyValue('right');
+  console.log(x);
 }
