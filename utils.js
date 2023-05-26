@@ -142,7 +142,7 @@ export const noteBtn = document.querySelector('.note-btn');
 export function handleNoteBtnClick() {
   const notes = document.querySelector('.notes');
   noteBtn.classList.add('off');
-  notes.style.right = "5%";
+  notes.style.right = "10%";
   
 }
 
