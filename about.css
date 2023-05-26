@@ -90,7 +90,7 @@ video {
   align-items: center;
   flex-direction: column;
   width: 100vw;
-  height: 80vh;
+  height: 100%;
   padding: 3rem 0;
 }
 
@@ -107,8 +107,8 @@ video {
 }
 
 .dev-card {
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -117,13 +117,13 @@ video {
   backdrop-filter: blur(0.05);
   border: 4px inset #00FFFF;
   border-radius: 20px;
-  padding: 0 20px 25px 20px;
+  padding: 0 25px 25px 20px;
 }
 
 .profile {
   width: 65%;
   height: 65%;
-  padding-bottom: 15%;
+  padding-bottom: 5%;
 }
 
 .profile img {
@@ -138,4 +138,13 @@ video {
   display: flex;
   justify-content: space-evenly;
   font-size: 25px;
+  padding: 10px;
+}
+
+.devs h1 {
+  padding: 5%;
+}
+
+.devs h6 {
+  text-align: center;
 }

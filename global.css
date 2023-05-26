@@ -272,6 +272,7 @@ form textarea {
   border-radius: 12px;
   background-color: #00FFFF;
   opacity: 0.5;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .notes {
@@ -282,7 +283,9 @@ form textarea {
   width: 20%;
   height: 50%;
   padding: 5px 0;
-  background-color: orchid;
+  background-color: rgba(240, 240, 240, .4);
+  backdrop-filter: blur(2px);
+  border: 2px solid #00FFFF;
   border-radius: 12px;
   display: flex;
   justify-content: center;
@@ -313,6 +316,18 @@ form textarea {
   word-wrap: break-word;
   word-break: break-all;
   margin: 5px 10px;
+}
+
+.note-saves button {
+  padding: 0.5em;
+  border: 3px inset double;
+  background-color: rgba(0, 240, 240, .6);
+  border-radius: 12px;
+  color: white;
+}
+
+.off {
+  opacity: 0;
 }
 
 
