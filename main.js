@@ -61,7 +61,7 @@ const ctgBlock = document.querySelectorAll(".ctg-block");
 
 ctgBlock.forEach(block => {
   block.addEventListener("click", () => {
-    window.location.href = "./learn.html";
+    window.location.href = "./Learn.html";
   });
 });
 
