@@ -1,1 +1,1 @@
-# proposal-sample
+# This website is for educational purposed used to be a proposal in UCC any content on this website is for non-profit and educational use only :D

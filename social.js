@@ -44,44 +44,47 @@ function saveData() {
   document.getElementById('message').value = '';
 }
 
-window.onload = function() {
-  var postButton = document.getElementById('post-btn');
-  postButton.addEventListener('click', saveData);
+// Function to display the messages from Firebase
+function displayMessages(snapshot) {
+  var displayDiv = document.getElementById('messageDisplay');
+  displayDiv.innerHTML = '';
 
-  // Function to display the messages from Firebase
-  onValue(msgDB, function(snapshot) {
-    var displayDiv = document.getElementById('messageDisplay');
-    displayDiv.innerHTML = '';
+  snapshot.forEach(function(childSnapshot) {
+    var childData = childSnapshot.val();
+    var name = childData.name;
+    var email = childData.email;
+    var message = childData.message;
+    var timestamp = childData.timestamp;
 
-    snapshot.forEach(function(childSnapshot) {
-      var childData = childSnapshot.val();
-      var name = childData.name;
-      var email = childData.email;
-      var message = childData.message;
-      var timestamp = childData.timestamp;
+    // Format the timestamp as per your requirements
+    var formattedTimestamp = new Date(timestamp).toLocaleString();
 
-      // Format the timestamp as per your requirements
-      var formattedTimestamp = new Date(timestamp).toLocaleString();
+    // Create the message container element
+    var messageContainer = document.createElement('div');
+    messageContainer.classList.add('post');
 
-      // Create the message container element
-      var messageContainer = document.createElement('div');
-      messageContainer.classList.add('post');
+    // Create the post info element
+    var postInfo = document.createElement('div');
+    postInfo.classList.add('post-info');
+    postInfo.innerHTML = '<span><strong>' + name + '</strong></span><span>(' + email + ')</span><span>' + '<br>' + formattedTimestamp + '</span>';
 
-      // Create the post info element
-      var postInfo = document.createElement('div');
-      postInfo.classList.add('post-info');
-      postInfo.innerHTML = '<span><strong>' + name + '</strong></span><span>(' + email + ')</span><span>' + '<br>' + formattedTimestamp + '</span>';
+    // Create the message element
+    var messageElement = document.createElement('p');
+    messageElement.innerText = message;
 
-      // Create the message element
-      var messageElement = document.createElement('p');
-      messageElement.innerText = message;
+    // Append the post info and message to the message container
+    messageContainer.appendChild(postInfo);
+    messageContainer.appendChild(messageElement);
 
-      // Append the post info and message to the message container
-      messageContainer.appendChild(postInfo);
-      messageContainer.appendChild(messageElement);
-
-      // Append the message container to the display div
-      displayDiv.appendChild(messageContainer);
-    });
+    // Append the message container to the display div
+    displayDiv.appendChild(messageContainer);
   });
-};
+}
+
+var postButton = document.getElementById('post-btn');
+postButton.addEventListener('click', saveData);
+
+// Listen for changes in the Firebase database
+onValue(msgDB, function(snapshot) {
+  displayMessages(snapshot);
+});
